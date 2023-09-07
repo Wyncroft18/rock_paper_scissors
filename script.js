@@ -43,6 +43,18 @@ function playRound(playerSelection, computerSelection) {
     }  
 }
     
+function gameOver() {
+    if (playerScore === 5) {
+        document.querySelector(".result").innerHTML = "Game Over! Humanity wins!";
+        document.querySelector(".playerScore").innerHTML = "";
+        document.querySelector(".computerScore").innerHTML = "";
+    } else {
+        document.querySelector(".result").innerHTML = "Game Over! Computer wins!";
+        document.querySelector(".playerScore").innerHTML = "";
+        document.querySelector(".computerScore").innerHTML = "";
+    }
+    
+}
     
 let playerScore = 0;
 let computerScore = 0;
@@ -57,11 +69,15 @@ buttons.forEach((button) => {
         computerSelection = getComputerChoice();
         playRound(playerSelection, computerSelection);
         if (playerScore === 5 || computerScore === 5) {
+            buttons.forEach((button) => {
+                button.disabled = true;
+            });
             setTimeout(function() {
-                alert("Game Over!");
-            }, 0);
-            playerScore = 0;
-            computerScore = 0;
-        }
-    })
+                gameOver();
+            }, 2000);
+            setTimeout(function() {
+                location.reload();
+            }, 5000);
+        };
+    });
 });
