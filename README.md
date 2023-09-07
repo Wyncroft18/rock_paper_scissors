@@ -1,1 +1,1 @@
-This rock-paper-scissor game is my first project in javascript and it will only work in the console for now. Let's give it a try!
+This rock-paper-scissor game is my first project in javascript. I've added some basic design to it and used my knowledge of javascript to make it a fully running game on the page.
