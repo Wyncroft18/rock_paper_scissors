@@ -7,38 +7,38 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
-        console.log("It's a draw!");
+        document.querySelector(".result").innerHTML = "It's a draw!";
     } else {
         if (playerSelection === "rock" && computerSelection === "paper") {
             computerScore += 1;
-            console.log("You lose! Paper beats rock.");
-            console.log("Player Score: " + playerScore);
-            console.log("Computer Score: " + computerScore);
+            document.querySelector(".result").innerHTML = "You lose! Paper beats rock.";
+            document.querySelector(".playerScore").innerHTML = "Player Score: " + playerScore;
+            document.querySelector(".computerScore").innerHTML = "Computer Score: " + computerScore;
         } else if (playerSelection === "rock" && computerSelection === "scissor") {
             playerScore += 1;
-            console.log("You win! Rock beats scissor.");
-            console.log("Player Score: " + playerScore);
-            console.log("Computer Score: " + computerScore);
+            document.querySelector(".result").innerHTML = "You win! Rock beats scissor.";
+            document.querySelector(".playerScore").innerHTML = "Player Score: " + playerScore;
+            document.querySelector(".computerScore").innerHTML = "Computer Score: " + computerScore;
         } else if (playerSelection === "paper" && computerSelection === "rock") {
             playerScore += 1;
-            console.log("You win! Paper beats rock.");
-            console.log("Player Score: " + playerScore);
-            console.log("Computer Score: " + computerScore);
+            document.querySelector(".result").innerHTML = "You win! Paper beats rock.";
+            document.querySelector(".playerScore").innerHTML = "Player Score: " + playerScore;
+            document.querySelector(".computerScore").innerHTML = "Computer Score: " + computerScore;
         } else if (playerSelection === "paper" && computerSelection === "scissor") {
             computerScore += 1;
-            console.log("You lose! Scissor beats paper.");
-            console.log("Player Score: " + playerScore);
-            console.log("Computer Score: " + computerScore);
+            document.querySelector(".result").innerHTML = "You lose! Scissor beats paper.";
+            document.querySelector(".playerScore").innerHTML = "Player Score: " + playerScore;
+            document.querySelector(".computerScore").innerHTML = "Computer Score: " + computerScore;
         } else if (playerSelection === "scissor" && computerSelection === "rock") {
             computerScore += 1;
-            console.log("You lose! Rock beats scissor.");
-            console.log("Player Score: " + playerScore);
-            console.log("Computer Score: " + computerScore);    
+            document.querySelector(".result").innerHTML = "You lose! Rock beats scissor.";
+            document.querySelector(".playerScore").innerHTML = "Player Score: " + playerScore;
+            document.querySelector(".computerScore").innerHTML = "Computer Score: " + computerScore;   
         } else {
             playerScore += 1;
-            console.log("You win! Scissor beats paper.");
-            console.log("Player Score: " + playerScore);
-            console.log("Computer Score: " + computerScore);
+            document.querySelector(".result").innerHTML = "You win! Scissor beats paper.";
+            document.querySelector(".playerScore").innerHTML = "Player Score: " + playerScore;
+            document.querySelector(".computerScore").innerHTML = "Computer Score: " + computerScore;
         }
     }  
 }
@@ -55,11 +55,11 @@ buttons.forEach((button) => {
     button.addEventListener('click', function(e) {
         playerSelection = e.target.id;
         computerSelection = getComputerChoice();
-        console.log(playerSelection)
-        console.log(computerSelection)
         playRound(playerSelection, computerSelection);
         if (playerScore === 5 || computerScore === 5) {
-            alert("Game Over!");
+            setTimeout(function() {
+                alert("Game Over!");
+            }, 0);
             playerScore = 0;
             computerScore = 0;
         }
